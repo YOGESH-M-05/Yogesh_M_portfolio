@@ -8,15 +8,18 @@ body {
   padding: 0;
 }
 
+/* Container */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 20px;
+  width: 90%;
 }
 
 /* Header */
 .header {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/img/your-background-image.jpg') no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('assets/img/your-background-image.jpg') no-repeat center center/cover;
   color: #fff;
   padding: 40px 0;
   text-align: center;
@@ -26,17 +29,19 @@ body {
 
 .header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
+/* Navigation */
 .navmenu ul {
   list-style: none;
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .navmenu ul li a {
@@ -57,7 +62,7 @@ body {
 
 /* Sections */
 .section {
-  padding: 40px;
+  padding: 30px;
   text-align: center;
   background: #16213e;
   margin-bottom: 20px;
@@ -66,8 +71,8 @@ body {
 }
 
 .section h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
   color: #ffcc00;
   text-transform: uppercase;
 }
@@ -81,6 +86,31 @@ body {
   border: 3px solid #ffcc00;
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
   margin-bottom: 15px;
+}
+
+/* Projects */
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.project-item {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-item img,
+.project-item video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 /* Project List */
@@ -177,36 +207,121 @@ body {
   border-top: 3px solid #ffcc00;
   border-radius: 8px;
 }
-.project-grid {
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .navmenu ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .project-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-item {
+    width: 90%;
+  }
+
+  .profile-img {
+    width: 120px;
+  }
+
+  .btn-download {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 30px 0;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-item {
+    width: 100%;
+  }
+
+  .btn-download {
+    font-size: 0.9rem;
+  }
+}
+/* Floating Navigation Bar */
+.navmenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 20, 40, 0.9); /* Semi-transparent background */
+  padding: 10px 0;
+  z-index: 1000; /* Ensures it stays on top */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navmenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
-.project-item {
-  width: 300px; /* Set a fixed width for project items */
-  text-align: center;
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.navmenu ul li {
+  display: inline-block;
 }
 
-.project-item img {
-  max-width: 100%; /* Ensure images are responsive within their containers */
-  height: auto;
-  border-radius: 8px;
+.navmenu ul li a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
 }
 
-.profile-img {
-  width: 200px; /* Adjust profile image size */
-  height: auto;
-  border-radius: 50%;
-  margin: 10px 0;
+.navmenu ul li a:hover {
+  color: #fff;
+  background: #ff5733;
+  box-shadow: 0 3px 6px rgba(255, 87, 51, 0.3);
 }
-.project-item video {
-  max-width: 100%; /* Ensure videos are responsive within their containers */
-  height: auto;
-  border-radius: 8px;
+
+/* Adjust body padding to prevent content from being hidden behind navbar */
+body {
+  padding-top: 60px; /* Adjust this based on navbar height */
+}
+
+/* Responsive Floating Navigation (without hamburger menu) */
+@media (max-width: 768px) {
+  .navmenu ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navmenu ul li {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .navmenu ul li a {
+    display: block;
+    padding: 10px;
+  }
 }
