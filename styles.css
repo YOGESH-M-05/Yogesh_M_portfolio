@@ -311,17 +311,23 @@ body {
 /* Responsive Floating Navigation (without hamburger menu) */
 @media (max-width: 768px) {
   .navmenu ul {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .navmenu ul li {
-    width: 100%;
-    padding: 10px 0;
+    gap: 5px; /* Reduce spacing between menu items */
+    padding: 5px 0; /* Reduce top and bottom padding */
   }
 
   .navmenu ul li a {
-    display: block;
-    padding: 10px;
+    font-size: 0.85rem; /* Make font smaller */
+    padding: 6px 10px; /* Adjust padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .navmenu ul {
+    gap: 3px;
+  }
+
+  .navmenu ul li a {
+    font-size: 0.8rem;
+    padding: 5px 8px;
   }
 }
